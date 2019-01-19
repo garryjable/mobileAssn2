@@ -15,21 +15,35 @@ import styles from './styles/Style'
 
 export default class App extends Component {
 
-
-  this.state = {
-    counterVal: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      counterVal: 0
+    }
   }
 
-  onPress = () => {
-    this.setState({
-      count: this.state.count + 1
-    })
+  increment = () => {
+    console.log('up')
+    this.setState((prevState) => {return {
+      count: prevState.counterVal++
+    }})
+  }
+
+  decrement = () => {
+    console.log('down')
+    this.setState((prevState) => {return {
+      count: prevState.counterVal--
+    }})
   }
 
   render() {
+    const counterVal = this.state.counterVal
     return (
       <View style={styles.container}>
-        <MyButton onPress={() => this.onPress()}>
+        <Counter val={counterVal}/>
+        <MyButton onPress={() => this.increment()} label={'Up'}>
+        </MyButton>
+        <MyButton onPress={() => this.decrement()} label={'Down'}>
         </MyButton>
       </View>
     )

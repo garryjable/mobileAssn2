@@ -1,15 +1,18 @@
 import React, {Component} from 'react'
-import {AppRegistry, StyleSheet} from 'react-native'
+import {AppRegistry, StyleSheet, Text} from 'react-native'
+import PropTypes from 'prop-types';
 
 export default class Counter extends Component {
 
-props = {
-  count: integer
-}
+  static propTypes = {
+    val: PropTypes.number,
+  };
 
   render() {
     return (
-      this.props
+      <Text>
+        {this.props.val}
+      </Text>
     )
   }
 }
