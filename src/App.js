@@ -1,27 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, {Component} from 'react';
+import {Stylesheet, Text, View} from 'react-native';
 
-import React, {Component} from 'react'
-import {Stylesheet, Text, View} from 'react-native'
-import MyButton from './components/myButton'
-import Counter from './components/counter'
+import MyButton from './components/myButton';
+import Counter from './components/counter';
 
-import styles from './styles/Style'
+import styles from './styles/Style';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      counterVal: 0
+      counterVal: 0 // the value of the counter
     }
   }
 
+  // increments the counter
   increment = () => {
     console.log('up')
     this.setState((prevState) => {return {
@@ -29,6 +23,7 @@ export default class App extends Component {
     }})
   }
 
+  // decrements the counter
   decrement = () => {
     console.log('down')
     this.setState((prevState) => {return {
@@ -37,7 +32,7 @@ export default class App extends Component {
   }
 
   render() {
-    const counterVal = this.state.counterVal
+    const counterVal = this.state.counterVal;
     return (
       <View style={styles.container}>
         <Counter val={counterVal}/>
